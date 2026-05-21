@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class safeEngine {
+    public static double readDouble(Scanner scan, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                return scan.nextDouble();
+            } catch (InputMismatchException e) {
+                System.out.println("Помилка: введіть число (використовуйте кому як роздільник)!");
+                scan.next(); // Очищення буфера
+            }
+        }
+    }
+
+    public static int readInt(Scanner scan, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                return scan.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Помилка: введіть ціле число!");
+                scan.next(); // Очищення буфера
+            }
+        }
+    }
+}
